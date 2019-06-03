@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0515.1630                               -->
+<workbook original-version='18.1' source-build='2019.2.0 (20192.19.0515.1630)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='DuurOpening' inline='true' name='federated.1ids0s61fl3eyl1d3y2si0izacr2' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='DuurOpening' name='textscan.18y5aae0e7b4l11atkqc01al5hr9'>
+            <connection class='textscan' directory='D:/Code/Notebooks/Bruggen' filename='DuurOpening.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.18y5aae0e7b4l11atkqc01al5hr9' name='DuurOpening.csv' table='[DuurOpening#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='nl_NL'>
+            <column datatype='string' name=',duur,beweging,time,WR,Wk,uur,WRbin,WKbin' ordinal='0' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[DuurOpening.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;nl_NL&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;nl_NL&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>,duur,beweging,time,WR,Wk,uur,WRbin,WKbin</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]</local-name>
+            <parent-name>[DuurOpening.csv]</parent-name>
+            <remote-alias>,duur,beweging,time,WR,Wk,uur,WRbin,WKbin</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LNL_RNL' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Duur' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 2 ) ))' />
+      </column>
+      <column caption='Timestamp' datatype='string' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 4]' role='dimension' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 4 ) )' />
+      </column>
+      <column caption='WR' datatype='real' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5]' role='dimension' type='ordinal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 5 ) ))' />
+      </column>
+      <column caption='WK' datatype='real' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 6]' role='dimension' type='ordinal' user:SplitFieldIndex='6' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 6 ) ))' />
+      </column>
+      <column caption='Uur' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 7]' role='dimension' type='ordinal' user:SplitFieldIndex='7' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 7 ) ))' />
+      </column>
+      <column caption='WRbin' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8]' role='measure' type='quantitative' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 8 ) ))' />
+        <aliases>
+          <alias key='0' value='N' />
+          <alias key='1' value='NO' />
+          <alias key='2' value='O' />
+          <alias key='3' value='ZO' />
+          <alias key='4' value='Z' />
+          <alias key='5' value='ZW' />
+          <alias key='6' value='W' />
+          <alias key='7' value='NW' />
+        </aliases>
+      </column>
+      <column aggregation='CountD' caption='WKbin' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9]' role='dimension' type='ordinal' user:SplitFieldIndex='9' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 9 ) ))' />
+      </column>
+      <column datatype='string' hidden='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.5' show-aliased-fields='true' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Netherlands&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Scatter duur tegeover Windrichting</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='DuurOpening' name='federated.1ids0s61fl3eyl1d3y2si0izacr2' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ids0s61fl3eyl1d3y2si0izacr2'>
+            <column caption='Duur' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 2 ) ))' />
+            </column>
+            <column caption='WR' datatype='real' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5]' role='dimension' type='ordinal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 5 ) ))' />
+            </column>
+            <column caption='WRbin' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8]' role='measure' type='quantitative' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 8 ) ))' />
+              <aliases>
+                <alias key='0' value='N' />
+                <alias key='1' value='NO' />
+                <alias key='2' value='O' />
+                <alias key='3' value='ZO' />
+                <alias key='4' value='Z' />
+                <alias key='5' value='ZW' />
+                <alias key='6' value='W' />
+                <alias key='7' value='NW' />
+              </aliases>
+            </column>
+            <column datatype='string' hidden='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]' role='dimension' type='nominal' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2]' derivation='None' name='[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5]' derivation='None' name='[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8]' derivation='None' name='[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:nk]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <natural-sort column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' direction='DESC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.9944751262664795' />
+                <format attr='mark-color' value='#d3b348' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]</rows>
+        <cols>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5:ok]</cols>
+      </table>
+      <simple-id uuid='{76DAC589-CE8B-4F6D-B985-0BA5E13BA47F}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='DuurOpening' name='federated.1ids0s61fl3eyl1d3y2si0izacr2' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ids0s61fl3eyl1d3y2si0izacr2'>
+            <column caption='Duur' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 2 ) ))' />
+            </column>
+            <column caption='WRbin' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8]' role='measure' type='quantitative' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 8 ) ))' />
+              <aliases>
+                <alias key='0' value='N' />
+                <alias key='1' value='NO' />
+                <alias key='2' value='O' />
+                <alias key='3' value='ZO' />
+                <alias key='4' value='Z' />
+                <alias key='5' value='ZW' />
+                <alias key='6' value='W' />
+                <alias key='7' value='NW' />
+              </aliases>
+            </column>
+            <column aggregation='CountD' caption='WKbin' datatype='integer' datatype-customized='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9]' role='dimension' type='ordinal' user:SplitFieldIndex='9' user:SplitFieldOrigin='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,duur,beweging,time,WR,Wk,uur,WRbin,WKbin], &quot;,&quot;, 9 ) ))' />
+            </column>
+            <column datatype='string' hidden='true' name='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin]' role='dimension' type='nominal' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9]' derivation='CountD' name='[ctd:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2]' derivation='None' name='[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8]' derivation='Sum' name='[sum:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' />
+            </encodings>
+            <reference-line axis-column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[ctd:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[ctd:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]' z-order='1' />
+            <reference-line axis-column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[sum:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline1' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[sum:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:qk]' z-order='2' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[ctd:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[sum:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1ids0s61fl3eyl1d3y2si0izacr2].[ctd:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk] + [federated.1ids0s61fl3eyl1d3y2si0izacr2].[sum:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:qk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{EAE2C968-685C-4F79-AF58-FDD8E7B226FF}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='columns' />
+            <card type='rows' />
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 5:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 6:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 7:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C72A1FA0-A5D4-4577-8378-E24A209DD940}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 2:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 6:ok]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 8:nk]</field>
+            <field>[federated.1ids0s61fl3eyl1d3y2si0izacr2].[none:,duur,beweging,time,WR,Wk,uur,WRbin,WKbin - Split 9:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{73B7088A-9041-4A4D-9C7D-0AF5956261AC}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='123'>
+      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
+      FqI9NuJ/gzmY1SlAee0AAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
